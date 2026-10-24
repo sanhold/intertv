@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Direct — Inter TV</title>
+<meta name="description" content="Suivez Inter TV en direct : événements, conférences et émissions spéciales retransmis en direct depuis Abidjan.">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<meta name="theme-color" content="#1560bd">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-info">
+        <a href="mailto:intertvci@gmail.com"><i class="fa-solid fa-envelope"></i> intertvci@gmail.com</a>
+        <a href="tel:+2250596949043"><i class="fa-solid fa-phone"></i> +225 05 96 94 90 43</a>
+        <span><i class="fa-solid fa-location-dot"></i> Abatta Carrefour, Abidjan, Côte d'Ivoire</span>
+      </div>
+      <div class="topbar-social">
+        <a href="https://www.facebook.com/profile.php?id=61592637220068" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.tiktok.com/@inter.tv225" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://www.youtube.com/@intertvci" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="ticker">
+    <div class="ticker-label"><i class="fa-solid fa-bolt"></i>&nbsp;À la une</div>
+    <div class="ticker-track">
+      <div class="ticker-move">
+        <span>Bienvenue sur le nouveau site officiel d'Inter TV — informer, éduquer, inspirer.</span>
+        <span>Retrouvez nos reportages exclusifs sur l'actualité ivoirienne et internationale.</span>
+        <span>Inter TV est disponible sur Facebook et TikTok @inter.tv225.</span>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/img/logo.png" alt="Inter TV" class="logo-img" width="1470" height="539">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="programmes.html">Programmes</a></li>
+        <li><a href="actualites.html">Actualités</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="direct.html">Direct</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="direct.html" class="btn btn--primary btn--sm"><span class="live-dot"></span><span class="btn-label">En direct</span></a>
+        <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow"><span class="live-dot" style="margin-right:8px;"></span>Direct</div>
+      <h1>Inter TV en direct</h1>
+      <div class="breadcrumb"><a href="index.html">Accueil</a> / <span>Direct</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid" style="grid-template-columns:2fr 1fr;gap:32px;align-items:start;">
+      <div>
+        <div class="player">
+          <div class="player-tabs" role="tablist">
+            <button type="button" class="player-tab" data-src="https://www.youtube.com/embed/live_stream?channel=UCBNY9EYKA9dHCqyjfpqP8xg&amp;rel=0"><span class="live-dot"></span> En direct</button>
+            <button type="button" class="player-tab active" data-src="https://www.youtube.com/embed/videoseries?list=UUBNY9EYKA9dHCqyjfpqP8xg&amp;rel=0"><i class="fa-solid fa-clock-rotate-left"></i> Dernières vidéos</button>
+          </div>
+          <div class="player-frame">
+            <iframe id="yt-player" src="https://www.youtube.com/embed/videoseries?list=UUBNY9EYKA9dHCqyjfpqP8xg&amp;rel=0" title="Lecteur Inter TV CI" loading="lazy" allow="accelerometer; autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </div>
+          <p class="player-note"><i class="fa-solid fa-circle-info"></i> Pendant un direct, cliquez sur « En direct ». En dehors des diffusions, le lecteur affiche nos dernières vidéos. <a href="https://www.youtube.com/@intertvci/live" target="_blank" rel="noopener">Ouvrir sur YouTube <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
+        </div>
+        <div style="margin-top:24px;">
+          <h3 style="text-transform:none;letter-spacing:0;">À propos du direct</h3>
+          <p style="color:var(--gray);">Inter TV retransmet en direct des événements, conférences, cérémonies et émissions spéciales. Le lecteur ci-dessus est relié à notre chaîne YouTube : il bascule sur le direct dès que nous diffusons.</p>
+        </div>
+      </div>
+      <div>
+        <div class="live-chat">
+          <h3 style="color:#fff;text-transform:none;letter-spacing:0;font-size:1rem;"><i class="fa-solid fa-comments"></i> Discussion en direct</h3>
+          <p style="font-size:0.9rem;">Le chat est animé directement sur YouTube pendant chaque diffusion.</p>
+          <a href="https://www.youtube.com/@intertvci/live" target="_blank" rel="noopener" class="btn btn--youtube btn--sm"><i class="fa-brands fa-youtube"></i> Ouvrir le chat</a>
+        </div>
+        <div class="feature" style="margin-top:20px;">
+          <h3>Être averti d'un prochain direct</h3>
+          <p>Suivez Inter TV sur les réseaux sociaux pour recevoir toutes les annonces de direct.</p>
+          <div style="display:flex;gap:10px;margin-top:14px;">
+            <a href="https://www.facebook.com/profile.php?id=61592637220068" target="_blank" rel="noopener" class="btn btn--dark btn--sm"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.tiktok.com/@inter.tv225" target="_blank" rel="noopener" class="btn btn--dark btn--sm"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.youtube.com/@intertvci?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn--dark btn--sm" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--charcoal">
+    <div class="container">
+      <div class="section-head text-center" style="margin:0 auto 32px;">
+        <div class="eyebrow" style="justify-content:center;">Déjà diffusés en direct</div>
+        <h2>Nos derniers directs</h2>
+      </div>
+      <div class="grid grid--3">
+        <a class="card video-card" href="https://www.youtube.com/watch?v=AdqN_ljB7og" target="_blank" rel="noopener">
+          <div class="card-media"><img src="https://i.ytimg.com/vi/AdqN_ljB7og/hqdefault.jpg" alt="Diffusion en direct de INTER TV CI" loading="lazy"><span class="play-overlay"><i class="fa-solid fa-play"></i></span><span class="badge badge--yt"><i class="fa-brands fa-youtube"></i> YouTube</span></div>
+          <div class="card-body">
+            <div class="card-cat">Direct</div>
+            <h3>Diffusion en direct de INTER TV CI</h3>
+            <div class="card-meta"><span>10 sept. 2026</span><span>16 vues</span></div>
+          </div>
+        </a>
+        <a class="card video-card" href="https://www.youtube.com/watch?v=8uEL2-oltC4" target="_blank" rel="noopener">
+          <div class="card-media"><img src="https://i.ytimg.com/vi/8uEL2-oltC4/hqdefault.jpg" alt="Diffusion en direct de INTER TV CI" loading="lazy"><span class="play-overlay"><i class="fa-solid fa-play"></i></span><span class="badge badge--yt"><i class="fa-brands fa-youtube"></i> YouTube</span></div>
+          <div class="card-body">
+            <div class="card-cat">Direct</div>
+            <h3>Diffusion en direct de INTER TV CI</h3>
+            <div class="card-meta"><span>4 sept. 2026</span><span>57 vues</span></div>
+          </div>
+        </a>
+        <a class="card video-card" href="https://www.youtube.com/watch?v=xBAet_6IOcI" target="_blank" rel="noopener">
+          <div class="card-media"><img src="https://i.ytimg.com/vi/xBAet_6IOcI/hqdefault.jpg" alt="MONO MP4 EN CONCERT LIVE | Rediffusion Officielle sur Inter TV" loading="lazy"><span class="play-overlay"><i class="fa-solid fa-play"></i></span><span class="badge badge--yt"><i class="fa-brands fa-youtube"></i> YouTube</span></div>
+          <div class="card-body">
+            <div class="card-cat">Culture · Concert</div>
+            <h3>MONO MP4 EN CONCERT LIVE | Rediffusion Officielle sur Inter TV</h3>
+            <div class="card-meta"><span>8 oct. 2026</span><span>Nouveau</span></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="index.html" class="logo" style="margin-bottom:18px;">
+          <img src="assets/img/logo-blanc.png" alt="Inter TV" class="logo-img" width="1470" height="539">
+      </a>
+        <p>Inter TV est une chaîne de télévision ivoirienne basée à Abidjan. Informer, éduquer et inspirer : notre mission au service de l'actualité, de la culture et du divertissement.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/profile.php?id=61592637220068" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.tiktok.com/@inter.tv225" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.youtube.com/@intertvci" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="programmes.html">Programmes</a></li>
+          <li><a href="actualites.html">Actualités</a></li>
+          <li><a href="direct.html">Direct</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ressources</h4>
+        <ul>
+          <li><a href="services.html">Nos services</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="a-propos.html#equipe">Notre équipe</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><i class="fa-solid fa-location-dot"></i>&nbsp; Abatta Carrefour, zone SIFO Énergie, Abidjan, Côte d'Ivoire</li>
+          <li><a href="tel:+2250596949043"><i class="fa-solid fa-phone"></i> +225 05 96 94 90 43</a></li>
+          <li><a href="mailto:intertvci@gmail.com"><i class="fa-solid fa-envelope"></i> intertvci@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Inter TV. Tous droits réservés.</span>
+      <span>Abidjan, Côte d'Ivoire</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
