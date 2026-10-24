@@ -86,17 +86,38 @@ document.addEventListener('DOMContentLoaded', () => {
   modal.querySelector('.video-modal-close').addEventListener('click', closeModal);
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
 
-  // Formulaire de contact : simulation d'envoi (à brancher sur un service réel)
+  // Formulaire de contact : envoi par e-mail via FormSubmit (https://formsubmit.co)
   const contactForm = document.querySelector('#contact-form');
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    const alertBox = document.querySelector('#contact-alert');
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const showAlert = (ok, text) => {
+      if (!alertBox) return;
+      alertBox.className = `alert show ${ok ? 'alert--success' : 'alert--error'}`;
+      alertBox.textContent = text;
+      alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    };
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const alertBox = document.querySelector('#contact-alert');
-      if (alertBox) {
-        alertBox.classList.add('show');
-        alertBox.textContent = 'Merci, votre message a bien été enregistré. Notre équipe vous répondra rapidement.';
+      const label = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Envoi en cours…';
+      try {
+        const res = await fetch(contactForm.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(contactForm),
+        });
+        const data = await res.json();
+        if (!res.ok || String(data.success) !== 'true') throw new Error(data.message || 'Échec');
+        showAlert(true, 'Merci, votre message a bien été envoyé. Notre équipe vous répondra rapidement.');
+        contactForm.reset();
+      } catch (err) {
+        showAlert(false, "Le message n'a pas pu être envoyé. Réessayez ou écrivez-nous directement à intertvci@gmail.com.");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = label;
       }
-      contactForm.reset();
     });
   }
 
