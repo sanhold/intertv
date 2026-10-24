@@ -105,6 +105,32 @@ def grid(videos, filtered=False):
     return '<div class="grid grid--3">\n' + ''.join(card(v, filtered) for v in videos) + '      </div>'
 
 
+def hero(v):
+    cat, label = classify(v['title'])
+    title = html.escape(v['title'])
+    return f'''<a class="hero-visual hero-video video-card" href="https://www.youtube.com/watch?v={v['id']}" target="_blank" rel="noopener" data-title="{title}">
+        <img src="https://i.ytimg.com/vi/{v['id']}/maxresdefault.jpg" alt="{title}" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/{v['id']}/hqdefault.jpg'">
+        <span class="badge badge--live"><span class="dot"></span> Dernière vidéo</span>
+        <span class="play-overlay play-overlay--lg"><i class="fa-solid fa-play"></i></span>
+        <span class="hero-video-caption"><strong>{title}</strong><small>{v['date']} · {fmt_views(v['views'])}</small></span>
+      </a>'''
+
+
+def gallery(videos):
+    out = '<div class="grid grid--3">\n'
+    for v in videos:
+        cat, label = classify(v['title'])
+        title = html.escape(v['title'])
+        out += f'''        <a class="gallery-item gallery-item--video video-card" href="https://www.youtube.com/watch?v={v['id']}" target="_blank" rel="noopener" data-category="{cat}" data-title="{title}">
+          <img src="https://i.ytimg.com/vi/{v['id']}/hqdefault.jpg" alt="{title}" loading="lazy">
+          <span class="play-overlay"><i class="fa-solid fa-play"></i></span>
+          <span class="badge badge--outline">{label}</span>
+          <span class="gallery-title">{title}</span>
+        </a>
+'''
+    return out + '      </div>'
+
+
 def replace_block(text, name, content):
     pattern = re.compile(rf'(<!-- yt:{name}:start -->).*?(<!-- yt:{name}:end -->)', re.S)
     if not pattern.search(text):
@@ -128,6 +154,8 @@ def main():
     lives = [v for v in videos if classify(v['title'])[0] == 'direct']
     replays = (lives + [v for v in videos if v not in lives])[:3]
 
+    update('index.html', 'hero', hero(videos[0]))
+    update('galerie.html', 'gallery', gallery(videos))
     update('index.html', 'home', grid(videos[:3]))
     update('actualites.html', 'all', grid(videos, filtered=True))
     update('programmes.html', 'latest', grid(videos[:6]))

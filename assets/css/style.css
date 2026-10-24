@@ -893,3 +893,113 @@ body.modal-open { overflow: hidden; }
   .hero h1 { font-size: 1.85rem; }
   .gallery-item .badge { top: 6px; left: 6px; font-size: 0.62rem; padding: 3px 7px; }
 }
+
+/* =========================================================
+   Refonte visuelle
+   ========================================================= */
+
+/* Titres de cartes toujours lisibles (cartes blanches dans sections sombres) */
+.card-body h3, .section--dark .card-body h3, .section--charcoal .card-body h3 { color: var(--black); }
+.section--dark .card-body p, .section--charcoal .card-body p { color: var(--gray); }
+
+/* Motif de marque : triangle « play » du logo en filigrane */
+.hero::after, .page-hero::after {
+  content: '';
+  position: absolute;
+  right: -4%; top: 50%;
+  width: 46vw; max-width: 620px; aspect-ratio: 1.12;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, rgba(21,96,189,0.38), rgba(21,96,189,0.04));
+  clip-path: polygon(0 4%, 100% 50%, 0 96%);
+  pointer-events: none;
+}
+.hero::after { z-index: 0; }
+.page-hero { position: relative; overflow: hidden; }
+.page-hero .container { position: relative; z-index: 1; }
+.page-hero::after { width: 34vw; max-width: 420px; right: 2%; opacity: 0.8; }
+.hero .container { z-index: 1; }
+
+/* Hero : stats en grille + vidéo à la une */
+.hero-stats { display: grid; grid-template-columns: repeat(4, auto); justify-content: start; gap: 24px 36px; }
+.hero-stats div span { display: block; }
+.hero-video { aspect-ratio: 16/11; display: block; cursor: pointer; box-shadow: 0 24px 60px rgba(0,0,0,0.5); transition: transform 0.3s ease; }
+.hero-video:hover { transform: translateY(-4px); }
+.hero-video img { transition: transform 0.5s ease; }
+.hero-video:hover img { transform: scale(1.04); }
+.hero-video::after { background: linear-gradient(180deg, rgba(10,42,92,0.15) 30%, rgba(5,10,20,0.88)); }
+.play-overlay--lg { width: 84px; height: 84px; font-size: 1.7rem; padding-left: 5px; }
+.hero-video .play-overlay { z-index: 2; }
+.hero-video-caption { position: absolute; left: 22px; right: 22px; bottom: 20px; z-index: 2; color: var(--white); }
+.hero-video-caption strong { display: block; font-family: var(--font-head); font-size: 1.15rem; line-height: 1.25; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 6px; }
+.hero-video-caption small { color: rgba(255,255,255,0.75); font-size: 0.82rem; }
+
+/* Cartes : relief et liseré bleu au survol */
+.feature { transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; position: relative; }
+.feature:hover { transform: translateY(-5px); box-shadow: 0 16px 36px rgba(21,96,189,0.16); border-color: rgba(21,96,189,0.4); }
+.section--dark .feature:hover, .section--charcoal .feature:hover { box-shadow: 0 16px 36px rgba(0,0,0,0.45); border-color: rgba(111,177,255,0.45); }
+.icon-box { transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease; }
+.feature:hover .icon-box { background: var(--blue); color: var(--white); transform: scale(1.06); }
+
+/* Titres de section : trait d'accent */
+.section-head h2::after {
+  content: ''; display: block; width: 56px; height: 4px; border-radius: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--accent)); margin-top: 14px;
+}
+.section-head.text-center h2::after { margin-left: auto; margin-right: auto; }
+.section-head[style*="space-between"] h2::after { display: none; }
+
+/* Galerie : tuiles vidéo + coulisses */
+.gallery-item .badge--outline { background: rgba(5,10,20,0.72); border-color: rgba(255,255,255,0.35); color: var(--white); backdrop-filter: blur(4px); }
+.gallery-item--video { aspect-ratio: 16/10; display: block; box-shadow: 0 8px 24px rgba(0,0,0,0.18); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.gallery-item--video:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(21,96,189,0.3); }
+.gallery-item--video .play-overlay { width: 52px; height: 52px; }
+.gallery-title {
+  position: absolute; left: 14px; right: 14px; bottom: 12px; z-index: 2;
+  color: var(--white); font-weight: 600; font-size: 0.92rem; line-height: 1.3;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.gallery-item:not(.gallery-item--video) { aspect-ratio: 4/3; }
+
+/* Services : étapes numérotées */
+.step {
+  position: relative; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius); padding: 34px 28px 28px; overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.step:hover { transform: translateY(-5px); border-color: rgba(111,177,255,0.5); }
+.step-num { position: absolute; top: -14px; right: 14px; font-family: var(--font-head); font-size: 6.5rem; line-height: 1; color: rgba(111,177,255,0.12); font-weight: 700; }
+.step-icon { width: 52px; height: 52px; border-radius: 14px; background: var(--blue); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 18px; position: relative; }
+.step h3 { font-size: 1.1rem; text-transform: none; letter-spacing: 0; position: relative; color: var(--white); }
+.step p { color: var(--gray-light); margin: 0; font-size: 0.92rem; position: relative; }
+
+/* Apparition douce au défilement */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+/* Boutons flottants : WhatsApp + haut de page */
+.float-btns { position: fixed; right: 18px; bottom: 18px; z-index: 90; display: flex; flex-direction: column; gap: 12px; align-items: flex-end; }
+.float-btn {
+  width: 52px; height: 52px; border-radius: 50%; border: 0; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: var(--white);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.3); transition: transform 0.2s ease, opacity 0.3s ease;
+}
+.float-btn:hover { transform: scale(1.08); }
+.float-btn--wa { background: #25d366; }
+.float-btn--top { background: var(--blue); width: 44px; height: 44px; font-size: 1.05rem; opacity: 0; pointer-events: none; }
+.float-btn--top.show { opacity: 1; pointer-events: auto; }
+
+@media (max-width: 960px) {
+  .hero::after { width: 70vw; opacity: 0.6; right: -20%; }
+  .hero-stats { grid-template-columns: repeat(2, auto); }
+  .hero-video { max-width: none; aspect-ratio: 16/10; }
+}
+@media (max-width: 760px) {
+  .page-hero::after { width: 60vw; right: -12%; }
+  .hero-video-caption strong { font-size: 1rem; }
+  .play-overlay--lg { width: 66px; height: 66px; font-size: 1.4rem; }
+  .step-num { font-size: 5rem; }
+  .float-btns { right: 12px; bottom: 12px; }
+  .float-btn { width: 48px; height: 48px; }
+  .section-head h2::after { margin-top: 10px; }
+}

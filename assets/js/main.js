@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!m || e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1) return; // ouverture en onglet : comportement normal
       e.preventDefault();
       lastFocus = card;
-      openModal(m[1], card.querySelector('h3')?.textContent.trim() || 'Vidéo Inter TV');
+      openModal(m[1], card.dataset.title || card.querySelector('h3')?.textContent.trim() || 'Vidéo Inter TV');
     });
   });
   modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
@@ -135,6 +135,29 @@ document.addEventListener('DOMContentLoaded', () => {
           item.style.display = show ? '' : 'none';
         });
       });
+    });
+  }
+
+  // Boutons flottants : WhatsApp + retour en haut
+  const floats = document.createElement('div');
+  floats.className = 'float-btns';
+  floats.innerHTML = `
+    <a class="float-btn float-btn--wa" href="https://wa.me/2250596949043" target="_blank" rel="noopener" aria-label="Nous écrire sur WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <button type="button" class="float-btn float-btn--top" aria-label="Haut de page"><i class="fa-solid fa-chevron-up"></i></button>`;
+  document.body.appendChild(floats);
+  const topBtn = floats.querySelector('.float-btn--top');
+  topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  window.addEventListener('scroll', () => topBtn.classList.toggle('show', window.scrollY > 600), { passive: true });
+
+  // Apparition douce des blocs au défilement
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('main .card, main .feature, main .step, main .gallery-item, main .timeline-item, main .team-card, main .yt-banner, main .media-banner').forEach((el, i) => {
+      el.classList.add('reveal');
+      el.style.transitionDelay = `${(i % 4) * 70}ms`;
+      io.observe(el);
     });
   }
 });
