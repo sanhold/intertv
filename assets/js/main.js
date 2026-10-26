@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showAlert(true, 'Merci, votre message a bien été envoyé. Notre équipe vous répondra rapidement.');
         contactForm.reset();
       } catch (err) {
-        showAlert(false, "Le message n'a pas pu être envoyé. Réessayez ou écrivez-nous directement à intertvci@gmail.com.");
+        showAlert(false, "Le message n'a pas pu être envoyé. Réessayez ou écrivez-nous directement à direction@intertvci.com.");
       } finally {
         submitBtn.disabled = false;
         submitBtn.innerHTML = label;
